@@ -202,13 +202,15 @@ const Header = () => {
                     </nav>
                 </StyledMainCategoriesGroupWrapper>
                 <StyledLogoWrapper>
-                    <Link href='/'>
-                        <StyledLogoImage
-                            src='/images/logo.svg' alt='logo'
-                            width="99"
-                            height="20"
-                            alt="logo"
-                        />
+                    <Link href="/">
+                        <a>
+                            <StyledLogoImage
+                                src="/images/logo.svg"
+                                width={99}
+                                height={20}
+                                alt="logo"
+                            />
+                        </a>
                     </Link>
                 </StyledLogoWrapper>
                 <StyledButtonGroupWrapper>
