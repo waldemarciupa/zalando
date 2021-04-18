@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Link from 'next/link'
 
-const Button = styled(Link)`
+const Button = styled.a`
     margin-top: 16px;
     border: 3px solid #1a1a1a;
     background: #fff;
@@ -21,4 +21,16 @@ const Button = styled(Link)`
     }
 `
 
-export default Button
+const CustomButton = ({ href, name }) => {
+    // Must add passHref to Link
+    return (
+        <Link href={href} passHref>
+            <Button>
+                {name}
+            </Button>
+        </Link >
+    )
+}
+
+
+export default CustomButton
