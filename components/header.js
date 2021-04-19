@@ -193,7 +193,7 @@ const Header = () => {
                                 category.map(category => {
                                     return (
                                         <StyledListItem key={category.id}>
-                                            <Link href={`/categories/${category.id}`} passHref>
+                                            <Link href={`/categories/${category.url}`} passHref>
                                                 <StyledLink >
                                                     {category.name}
                                                 </StyledLink>
