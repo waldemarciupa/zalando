@@ -4,6 +4,7 @@ import CustomButton from './button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import API_URL from '../utils/urls'
 
 const StyledHeaderWrapperTop = styled.div`
     max-width: 1216px;
@@ -167,7 +168,7 @@ const Header = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const result = await axios.get('http://localhost:1337/categories');
+            const result = await axios.get(`${API_URL}/categories`);
             setCategory(result.data);
             console.log(result.data);
         }
