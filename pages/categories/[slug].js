@@ -11,7 +11,7 @@ const CategoryPage = () => {
 
     return (
         <Layout>
-
+            <h1>{router.query.slug}</h1>
         </Layout>
     )
 }
