@@ -5,6 +5,7 @@ const StyledCard = styled.div`
 `
 
 const ProductCard = ({ product }) => {
+    console.log(product);
     return (
         <StyledCard>
             {product.title}

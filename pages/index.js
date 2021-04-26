@@ -1,6 +1,6 @@
 import API_URL from '../utils/urls'
 import axios from 'axios'
-import ProductCard from '../components/ProductCard'
+import ProductList from '../components/ProductList'
 
 const Home = ({ products }) => {
 
@@ -8,12 +8,7 @@ const Home = ({ products }) => {
 
   return (
     <div>
-      <h1>Home</h1>
-      {
-        products.map(product => (
-          <ProductCard key={product.id} product={product} />
-        ))
-      }
+      <ProductList products={products} />
     </div>
   )
 }
