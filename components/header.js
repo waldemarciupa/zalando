@@ -170,7 +170,6 @@ const Header = () => {
         async function fetchData() {
             const result = await axios.get(`${API_URL}/categories`);
             setCategory(result.data);
-            console.log(result.data);
         }
 
         fetchData()
