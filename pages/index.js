@@ -1,9 +1,9 @@
 import API_URL from '../utils/urls'
 import axios from 'axios'
 
-const Home = ({ categories }) => {
+const Home = ({ products }) => {
 
-  console.log(categories);
+  console.log(products);
 
   return (
     <div>
@@ -13,12 +13,12 @@ const Home = ({ categories }) => {
 }
 
 export async function getServerSideProps(context) {
-  const result = await axios.get(`${API_URL}/categories`)
+  const result = await axios.get(`${API_URL}/products`)
   const data = result.data
 
   return {
     props: {
-      categories: data
+      products: data
     },
   }
 }

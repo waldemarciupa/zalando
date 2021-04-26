@@ -1,6 +1,6 @@
 import axios from 'axios'
 import styled from 'styled-components'
-import CustomButton from './button'
+import CustomButton from './Button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
