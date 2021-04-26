@@ -5,6 +5,9 @@ const StyledProductList = styled.div`
     width: 100%;
     min-height: 200px;
     background-color: hsl(203,62.3%,78.82%);
+    display: flex;
+    flex-wrap: no-wrap;
+    padding: 20px 10px;
 `
 
 const ProductList = ({ products }) => {
