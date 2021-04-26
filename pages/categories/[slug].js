@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
-import Layout from '../../components/layout'
 
 const CategoryPage = () => {
     const router = useRouter()
@@ -10,9 +9,7 @@ const CategoryPage = () => {
     }, []);
 
     return (
-        <Layout>
-            <h1>{router.query.slug}</h1>
-        </Layout>
+        <h1>{router.query.slug}</h1>
     )
 }
 
