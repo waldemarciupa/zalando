@@ -4,12 +4,12 @@ const StyledCard = styled.div`
 
 `
 
-const Card = ({ product }) => {
+const ProductCard = ({ product }) => {
     return (
         <StyledCard>
-            Card
+            {product.title}
         </StyledCard>
     )
 }
 
-export default Card
+export default ProductCard

@@ -1,5 +1,6 @@
 import API_URL from '../utils/urls'
 import axios from 'axios'
+import ProductCard from '../components/ProductCard'
 
 const Home = ({ products }) => {
 
@@ -8,6 +9,11 @@ const Home = ({ products }) => {
   return (
     <div>
       <h1>Home</h1>
+      {
+        products.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))
+      }
     </div>
   )
 }
