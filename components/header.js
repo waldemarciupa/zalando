@@ -69,6 +69,8 @@ const StyledLoginButtonWrapper = styled.div`
     border: ${(props) => props.isHover ? "3px solid #1a1a1a" : "3px solid transparent"};
     border-bottom-color: transparent;
     position: relative;
+    z-index: 2;
+
 `
 
 const StyledCartButtonWrapper = styled.div`

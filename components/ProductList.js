@@ -8,6 +8,11 @@ const StyledProductList = styled.div`
     display: flex;
     flex-wrap: no-wrap;
     padding: 20px 10px;
+
+    @media (max-width: 420px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const ProductList = ({ products }) => {
