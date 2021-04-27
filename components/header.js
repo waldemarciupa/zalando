@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import API_URL from '../utils/urls'
+import { useRouter } from 'next/router'
 
 const StyledHeaderWrapperTop = styled.div`
     max-width: 1216px;
@@ -29,12 +30,14 @@ const StyledMainCategoriesGroupWrapper = styled.div`
 const StyledLink = styled.a`
     display: inline-block;
     line-height: 24px;
-    color: #1a1a1a;
     padding: 6px 8px;
     font-weight: 700;
+    margin-right: 8px;
+    background: ${(props) => props.isActive ? "#000" : "transparent"};
+    color: ${(props) => props.isActive ? "#fff" : "#1a1a1a"};
 
     &:hover {
-        background: #efeff0;
+        background: ${(props) => props.isActive ? "#000" : "#efeff0"};
     }
 `
 
@@ -168,6 +171,8 @@ const Header = () => {
     const [isLoginHover, setIsLoginHover] = useState(false);
     const [isCartHover, setIsCartHover] = useState(false);
 
+    const router = useRouter()
+
     useEffect(() => {
         async function fetchData() {
             const result = await axios.get(`${API_URL}/categories`);
@@ -196,7 +201,7 @@ const Header = () => {
                                     return (
                                         <StyledListItem key={category.id}>
                                             <Link href={`/categories/${category.slug}`} passHref>
-                                                <StyledLink >
+                                                <StyledLink isActive={router.query.slug === category.slug ? 1 : 0} >
                                                     {category.name}
                                                 </StyledLink>
                                             </Link>
