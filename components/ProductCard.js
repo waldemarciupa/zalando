@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-import API_URL from '../utils/urls'
 
 const StyledCard = styled.div`
     flex-basis: 25%;
@@ -34,8 +33,9 @@ const StyledPrice = styled.div`
 `
 
 const ProductCard = ({ product }) => {
+    const { API_URL } = process.env
+
     const product_url = `${API_URL}` + product.image[0].formats['medium'].url;
-    console.log(product_url)
 
     return (
         <StyledCard>

@@ -1,4 +1,3 @@
-import API_URL from '../utils/urls'
 import axios from 'axios'
 import ProductList from '../components/ProductList'
 
@@ -14,6 +13,8 @@ const Home = ({ products }) => {
 }
 
 export async function getServerSideProps(context) {
+  const { API_URL } = process.env
+
   const result = await axios.get(`${API_URL}/products`)
   const data = result.data
 

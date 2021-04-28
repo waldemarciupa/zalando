@@ -4,7 +4,6 @@ import CustomButton from './Button'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import API_URL from '../utils/urls'
 import { useRouter } from 'next/router'
 
 const StyledHeaderWrapperTop = styled.div`
@@ -172,6 +171,8 @@ const Header = () => {
     const [isCartHover, setIsCartHover] = useState(false);
 
     const router = useRouter()
+
+    const { API_URL } = process.env
 
     useEffect(() => {
         async function fetchData() {
