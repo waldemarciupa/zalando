@@ -6,7 +6,7 @@ import '../styles/global.css'
 function App({ Component, pageProps, navigation }) {
   return (
     <>
-      <Header />
+      <Header navigation={navigation} />
       <Component {...pageProps} />
     </>
   )

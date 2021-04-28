@@ -164,24 +164,11 @@ const StyledHeaderWrapperBottom = styled.div`
     }
 `
 
-const Header = () => {
-
-    const [category, setCategory] = useState([]);
-    const [isLoginHover, setIsLoginHover] = useState(false);
-    const [isCartHover, setIsCartHover] = useState(false);
-
+const Header = ({ navigation }) => {
     const router = useRouter()
 
-    const { API_URL } = process.env
-
-    useEffect(() => {
-        async function fetchData() {
-            const result = await axios.get(`${API_URL}/categories`);
-            setCategory(result.data);
-        }
-
-        fetchData()
-    }, [])
+    const [isLoginHover, setIsLoginHover] = useState(false);
+    const [isCartHover, setIsCartHover] = useState(false);
 
     const toggleLoginHover = () => {
         setIsLoginHover(!isLoginHover)
@@ -198,12 +185,12 @@ const Header = () => {
                     <nav>
                         <ul>
                             {
-                                category.map(category => {
+                                navigation.map(item => {
                                     return (
-                                        <StyledListItem key={category.id}>
-                                            <Link href={`/categories/${category.slug}`} passHref>
-                                                <StyledLink isActive={router.query.slug === category.slug ? 1 : 0} >
-                                                    {category.name}
+                                        <StyledListItem key={item.id}>
+                                            <Link href={`/categories/${item.slug}`} passHref>
+                                                <StyledLink isActive={router.query.slug === item.slug ? 1 : 0} >
+                                                    {item.title}
                                                 </StyledLink>
                                             </Link>
                                         </StyledListItem>
