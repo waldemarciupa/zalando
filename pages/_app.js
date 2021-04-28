@@ -1,7 +1,9 @@
+import axios from 'axios'
+import getConfig from 'next/config'
 import Header from '../components/header'
 import '../styles/global.css'
 
-export default function App({ Component, pageProps }) {
+function App({ Component, pageProps, navigation }) {
   return (
     <>
       <Header />
@@ -9,3 +11,15 @@ export default function App({ Component, pageProps }) {
     </>
   )
 }
+
+const { publicRuntimeConfig } = getConfig()
+
+App.getInitialProps = async () => {
+
+  const res = await axios.get(`${publicRuntimeConfig.API_URL}/navigations`)
+  const navigation = res.data
+
+  return { navigation }
+}
+
+export default App
