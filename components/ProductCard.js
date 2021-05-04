@@ -8,6 +8,11 @@ const StyledCard = styled.div`
     padding-right: 8px;
 `
 
+const StyledCardLink = styled.a`
+    display: inline-block;
+    position: relative;
+`
+
 const StyledLogoImage = styled(Image)`
     width: 100%;
 `
@@ -39,6 +44,14 @@ const StyledPrice = styled.div`
     font-size: 14px;
 `
 
+const StyledIcon = styled.div`
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 13%;
+    text-align: center;
+`
+
 const ProductCard = ({ product }) => {
     const { API_URL } = process.env
 
@@ -47,9 +60,17 @@ const ProductCard = ({ product }) => {
     return (
         <StyledCard>
             <Link href='/' passHref>
-                <a>
+                <StyledCardLink>
                     <StyledLogoImage width={300} height={400} src={image_url} />
-                </a>
+                    <StyledIcon>
+                        <Image
+                            src="/images/wishlist.svg"
+                            width={24}
+                            height={24}
+                            alt="logo"
+                        />
+                    </StyledIcon>
+                </StyledCardLink>
             </Link>
             <Link href='/' passHref>
                 <a>
