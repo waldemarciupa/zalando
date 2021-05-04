@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const StyledCard = styled.div`
     flex-basis: 25%;
@@ -8,7 +9,7 @@ const StyledCard = styled.div`
 `
 
 const StyledCardLink = styled.a`
-
+    display: inline-block;
 `
 
 const StyledLogoImage = styled(Image)`
@@ -35,26 +36,32 @@ const StyledPrice = styled.div`
 const ProductCard = ({ product }) => {
     const { API_URL } = process.env
 
-    const product_url = `${API_URL}` + product.image[0].formats['medium'].url;
+    const image_url = `${API_URL}` + product.image[0].formats['medium'].url
 
     return (
         <StyledCard>
-            <StyledCardLink>
-                <StyledLogoImage width={300} height={400} src={product_url} />
-            </StyledCardLink>
-            <StyledCardDesc>
-                <div>
-                    <StyledBrand>
-                        {product.brand}
-                    </StyledBrand>
-                    <StyledTitle>
-                        {product.title}
-                    </StyledTitle>
-                </div>
-                <StyledPrice>
-                    {product.price}
-                </StyledPrice>
-            </StyledCardDesc>
+            <Link href='/' passHref>
+                <StyledCardLink>
+                    <StyledLogoImage width={300} height={400} src={image_url} />
+                </StyledCardLink>
+            </Link>
+            <Link href='/' passHref>
+                <StyledCardLink>
+                    <StyledCardDesc>
+                        <div>
+                            <StyledBrand>
+                                {product.brand}
+                            </StyledBrand>
+                            <StyledTitle>
+                                {product.title}
+                            </StyledTitle>
+                        </div>
+                        <StyledPrice>
+                            {product.price}
+                        </StyledPrice>
+                    </StyledCardDesc>
+                </StyledCardLink>
+            </Link>
         </StyledCard>
     )
 }
