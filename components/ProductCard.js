@@ -10,6 +10,7 @@ const StyledCard = styled.div`
 
 const StyledCardLink = styled.a`
     display: inline-block;
+    width: 100%;
 `
 
 const StyledLogoImage = styled(Image)`
@@ -57,7 +58,7 @@ const ProductCard = ({ product }) => {
                             </StyledTitle>
                         </div>
                         <StyledPrice>
-                            {product.price}
+                            {product.price.toFixed(2)} zł
                         </StyledPrice>
                     </StyledCardDesc>
                 </StyledCardLink>
