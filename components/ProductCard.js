@@ -8,26 +8,31 @@ const StyledCard = styled.div`
     padding-right: 8px;
 `
 
-const StyledCardLink = styled.a`
-    display: inline-block;
-    width: 100%;
-`
-
 const StyledLogoImage = styled(Image)`
     width: 100%;
 `
 
 const StyledCardDesc = styled.div`
     line-height: 1.25rem;
+    height: 124px;
+    padding-top: 8px;
 `
 
 const StyledBrand = styled.span`
     display: block;
     font-size: 14px;
+    font-family: 'Lora', setIsLoginHover;
 `
 
 const StyledTitle = styled.div`
     font-size: 14px;
+    margin-bottom: 8px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* after 1 line show ... */
+    -webkit-box-orient: vertical;
 `
 
 const StyledPrice = styled.div`
@@ -42,12 +47,12 @@ const ProductCard = ({ product }) => {
     return (
         <StyledCard>
             <Link href='/' passHref>
-                <StyledCardLink>
+                <a>
                     <StyledLogoImage width={300} height={400} src={image_url} />
-                </StyledCardLink>
+                </a>
             </Link>
             <Link href='/' passHref>
-                <StyledCardLink>
+                <a>
                     <StyledCardDesc>
                         <div>
                             <StyledBrand>
@@ -61,7 +66,7 @@ const ProductCard = ({ product }) => {
                             {product.price.toFixed(2)} zł
                         </StyledPrice>
                     </StyledCardDesc>
-                </StyledCardLink>
+                </a>
             </Link>
         </StyledCard>
     )
