@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const Product = ({ product }) => {
+
     console.log(product);
 
     return (
@@ -11,14 +12,14 @@ const Product = ({ product }) => {
 export async function getServerSideProps(context) {
     const { API_URL } = process.env
 
-    const { id } = context.query
+    const { slug } = context.query
 
-    const result = await axios.get(`${API_URL}/products/${id}`)
+    const result = await axios.get(`${API_URL}/products?slug=${slug}`)
     const data = result.data
 
     return {
         props: {
-            product: data
+            product: data[0]
         },
     }
 }
