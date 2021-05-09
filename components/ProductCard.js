@@ -72,7 +72,7 @@ const ProductCard = ({ product }) => {
                     </StyledIcon>
                 </StyledCardLink>
             </Link>
-            <Link href='/' passHref>
+            <Link href='/products/[slug]' as={`/products/${product.slug}`} passHref>
                 <a>
                     <StyledCardDesc>
                         <div>
