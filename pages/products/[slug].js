@@ -30,9 +30,11 @@ const Product = ({ product }) => {
         max-width: 16.66667%;
     `
 
-    const StyledThumbnail = styled.li``
+    const StyledThumbnail = styled.li`
+        margin-bottom: 8px;
+    `
 
-    const StyledImageMainWrapper = styled.div`
+    const StyledMainImageWrapper = styled.div`
         flex-basis: 83.3333%;
         max-width: 83.3333%;
     `
@@ -54,24 +56,50 @@ const Product = ({ product }) => {
         line-height: 2rem;
     `
 
+    const StyledTitle = styled.h1`
+        font-size: 1.75rem;
+        letter-spacing: -.28px;
+        line-height: 2rem;
+        padding-top: 4px;
+        font-weight: 600;
+    `
+
+    const StyledPrice = styled.div`
+        margin-top: 8px;
+        font-size: 1.375rem;
+        letter-spacing: -.22px;
+        line-height: 1.75rem;
+        font-weight: 400;
+
+        span {
+            font-size: .875rem;
+            line-height: 1.25rem;
+            margin-left: 8px;
+            color: #66676e;
+        }
+    `
+
     return (
         <StyledContainer>
             <StyledImageWrapper>
                 <StyledThumbnailsWrapper>
                     {product.image.map(thumb => (
-                        <Image width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
+                        <StyledThumbnail>
+                            <Image width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
+                        </StyledThumbnail>
                     ))}
-
-
                 </StyledThumbnailsWrapper>
-                <StyledImageMainWrapper>
+                <StyledMainImageWrapper>
                     <StyledLogoImage width={600} height={900} src={image_url} />
-                </StyledImageMainWrapper>
+                </StyledMainImageWrapper>
             </StyledImageWrapper>
 
             <StyledContentWrapper>
                 <StyledBrand>{product.brand}</StyledBrand>
-                <h1>{product.title}</h1>
+                <StyledTitle>{product.title}</StyledTitle>
+                <StyledPrice>{product.price.toFixed(2)} zł
+                    <span> w tym VAT</span>
+                </StyledPrice>
             </StyledContentWrapper>
         </StyledContainer>
     )
