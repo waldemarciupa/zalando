@@ -7,18 +7,36 @@ const Product = ({ product }) => {
 
     const image_url = `${API_URL}` + product.image[0].formats['large'].url
 
+
+    product.image.map(thumb => {
+        console.log(thumb.formats['thumbnail'].url);
+    })
     console.log(product);
 
     const StyledContainer = styled.div`
         max-width: 1216px;
-        margin: 0 auto;
+        margin: 24px auto 0;
         display: flex;
     `
 
     const StyledImageWrapper = styled.div`
         flex-basis: 50%;
         max-width: 50%;
+        display: flex;
     `
+
+    const StyledThumbnailsWrapper = styled.ul`
+        flex-basis: 16.66667%;
+        max-width: 16.66667%;
+    `
+
+    const StyledThumbnail = styled.li``
+
+    const StyledImageMainWrapper = styled.div`
+        flex-basis: 83.3333%;
+        max-width: 83.3333%;
+    `
+
 
     const StyledLogoImage = styled(Image)`
         width: 100%;
@@ -39,7 +57,16 @@ const Product = ({ product }) => {
     return (
         <StyledContainer>
             <StyledImageWrapper>
-                <StyledLogoImage width={600} height={900} src={image_url} />
+                <StyledThumbnailsWrapper>
+                    {product.image.map(thumb => (
+                        <Image width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
+                    ))}
+
+
+                </StyledThumbnailsWrapper>
+                <StyledImageMainWrapper>
+                    <StyledLogoImage width={600} height={900} src={image_url} />
+                </StyledImageMainWrapper>
             </StyledImageWrapper>
 
             <StyledContentWrapper>
