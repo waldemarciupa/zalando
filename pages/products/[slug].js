@@ -82,7 +82,7 @@ const Product = ({ product }) => {
     const image_url = `${API_URL}` + product.image[0].formats['large'].url
 
     const [image, setImage] = useState(image_url)
-    const [isBorder, setIsBorder] = useState(true)
+    const [isBorder, setIsBorder] = useState()
 
     const handleChangeImage = (e) => {
         const thumbId = e.target.dataset.id
@@ -90,18 +90,20 @@ const Product = ({ product }) => {
             return e.id == thumbId
         })
         const thumbSelectedUrl = `${API_URL}` + thumbFilteredById[0].formats['large'].url
-        setImage(thumbSelectedUrl)
     }
 
     return (
         <StyledContainer>
             <StyledImageWrapper>
                 <StyledThumbnailsWrapper>
-                    {product.image.map(thumb => (
-                        <StyledThumbnail isBorder key={thumb.id}>
-                            <Image data-id={thumb.id} onMouseEnter={handleChangeImage} width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
-                        </StyledThumbnail>
-                    ))}
+                    {product.image.map((thumb, index) => {
+                        return (
+                            <StyledThumbnail isBorder={index === 0 && true} key={thumb.id}>
+                                <Image data-id={thumb.id} onMouseEnter={handleChangeImage} width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
+                            </StyledThumbnail>
+                        )
+                    }
+                    )}
                 </StyledThumbnailsWrapper>
                 <StyledMainImageWrapper>
                     <StyledLogoImage width={600} height={900} src={image} />
