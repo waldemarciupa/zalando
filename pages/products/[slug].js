@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 
@@ -71,7 +72,17 @@ const StyledPrice = styled.div`
 const Product = ({ product }) => {
     const { API_URL } = process.env
     const image_url = `${API_URL}` + product.image[0].formats['large'].url
-    console.log(product);
+
+    const [image, setImage] = useState(image_url)
+
+    const handleChangeImage = (e) => {
+        const thumbId = e.target.dataset.id
+        const thumbFilteredById = product.image.filter(function (e) {
+            return e.id == thumbId
+        })
+        const thumbSelectedUrl = `${API_URL}` + thumbFilteredById[0].formats['large'].url
+        setImage(thumbSelectedUrl)
+    }
 
     return (
         <StyledContainer>
@@ -79,12 +90,12 @@ const Product = ({ product }) => {
                 <StyledThumbnailsWrapper>
                     {product.image.map(thumb => (
                         <StyledThumbnail key={thumb.id}>
-                            <Image width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
+                            <Image data-id={thumb.id} onMouseEnter={handleChangeImage} width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
                         </StyledThumbnail>
                     ))}
                 </StyledThumbnailsWrapper>
                 <StyledMainImageWrapper>
-                    <StyledLogoImage width={600} height={900} src={image_url} />
+                    <StyledLogoImage width={600} height={900} src={image} />
                 </StyledMainImageWrapper>
             </StyledImageWrapper>
 
@@ -101,9 +112,7 @@ const Product = ({ product }) => {
 
 export async function getServerSideProps(context) {
     const { API_URL } = process.env
-
     const { slug } = context.query
-
     const result = await axios.get(`${API_URL}/products?slug=${slug}`)
     const data = result.data
 
