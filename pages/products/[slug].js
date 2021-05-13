@@ -18,17 +18,25 @@ const StyledImageWrapper = styled.div`
 const StyledThumbnailsWrapper = styled.ul`
     flex-basis: 16.66667%;
     max-width: 16.66667%;
+    padding-left: 8px;
+    padding-right: 8px;
 `
 
 const StyledThumbnail = styled.li`
     margin-bottom: 8px;
+    cursor: pointer;
+    border: 2px solid #1a1a1a;
+    border: ${(props) => props.isBorder ? "2px solid #1a1a1a;" : "2px solid transparent"};
+
+    div {
+        display: block !important;
+    }
 `
 
 const StyledMainImageWrapper = styled.div`
     flex-basis: 83.3333%;
     max-width: 83.3333%;
 `
-
 
 const StyledLogoImage = styled(Image)`
     width: 100%;
@@ -74,6 +82,7 @@ const Product = ({ product }) => {
     const image_url = `${API_URL}` + product.image[0].formats['large'].url
 
     const [image, setImage] = useState(image_url)
+    const [isBorder, setIsBorder] = useState(true)
 
     const handleChangeImage = (e) => {
         const thumbId = e.target.dataset.id
@@ -89,7 +98,7 @@ const Product = ({ product }) => {
             <StyledImageWrapper>
                 <StyledThumbnailsWrapper>
                     {product.image.map(thumb => (
-                        <StyledThumbnail key={thumb.id}>
+                        <StyledThumbnail isBorder key={thumb.id}>
                             <Image data-id={thumb.id} onMouseEnter={handleChangeImage} width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
                         </StyledThumbnail>
                     ))}
