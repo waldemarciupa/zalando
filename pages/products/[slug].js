@@ -25,8 +25,11 @@ const StyledThumbnailsWrapper = styled.ul`
 const StyledThumbnail = styled.li`
     margin-bottom: 8px;
     cursor: pointer;
-    border: 2px solid #1a1a1a;
-    border: ${(props) => props.isBorder ? "2px solid #1a1a1a;" : "2px solid transparent"};
+    border: 2px solid transparent;
+
+    &:hover {
+        border: 2px solid #1a1a1a;
+    }
 
     div {
         display: block !important;
@@ -80,9 +83,7 @@ const StyledPrice = styled.div`
 const Product = ({ product }) => {
     const { API_URL } = process.env
     const image_url = `${API_URL}` + product.image[0].formats['large'].url
-
     const [image, setImage] = useState(image_url)
-    const [isBorder, setIsBorder] = useState()
 
     const handleChangeImage = (e) => {
         const thumbId = e.target.dataset.id
@@ -90,6 +91,7 @@ const Product = ({ product }) => {
             return e.id == thumbId
         })
         const thumbSelectedUrl = `${API_URL}` + thumbFilteredById[0].formats['large'].url
+        setImage(thumbSelectedUrl)
     }
 
     return (
@@ -98,8 +100,15 @@ const Product = ({ product }) => {
                 <StyledThumbnailsWrapper>
                     {product.image.map((thumb, index) => {
                         return (
-                            <StyledThumbnail isBorder={index === 0 && true} key={thumb.id}>
-                                <Image data-id={thumb.id} onMouseEnter={handleChangeImage} width={84} height={120} src={`${API_URL}` + thumb.formats['thumbnail'].url} />
+                            <StyledThumbnail
+                                key={thumb.id}>
+                                <Image
+                                    index={index}
+                                    onMouseEnter={handleChangeImage}
+                                    data-id={thumb.id}
+                                    width={84}
+                                    height={120}
+                                    src={`${API_URL}` + thumb.formats['thumbnail'].url} />
                             </StyledThumbnail>
                         )
                     }
@@ -109,7 +118,6 @@ const Product = ({ product }) => {
                     <StyledLogoImage width={600} height={900} src={image} />
                 </StyledMainImageWrapper>
             </StyledImageWrapper>
-
             <StyledContentWrapper>
                 <StyledBrand>{product.brand}</StyledBrand>
                 <StyledTitle>{product.title}</StyledTitle>
