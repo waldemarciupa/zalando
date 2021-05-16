@@ -1,12 +1,15 @@
 import axios from 'axios'
+import Banner from '../components/Banner'
 import ProductList from '../components/ProductList'
 
 const Home = ({ products }) => {
 
-  console.log(products);
-
   return (
     <div>
+      <Banner
+        background="#47AAB0"
+        title='Nowości tygodnia'
+        text='Kolekcje na czasie' />
       <ProductList products={products} />
     </div>
   )
