@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Image from 'next/image'
 import Link from 'next/link'
+import ButtonLink from '../components/ButtonLink'
 
 const StyledBanner = styled.div`
     background: ${props => props.background};
@@ -55,6 +56,7 @@ const Banner = ({ title, text, background }) => {
                     <StyledText>
                         {text}
                     </StyledText>
+                    <ButtonLink href='/' />
                 </StyledTextWrapper>
                 <StyledImage
                     src="/images/banner_1.webp"
