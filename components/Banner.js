@@ -44,27 +44,31 @@ const StyledImage = styled(Image)`
     margin-top: 24px;
 `
 
-const Banner = ({ title, text, background }) => {
+const Banner = ({ title, text, background, href }) => {
 
     return (
         <StyledBanner background={background}>
-            <StyledBannerContainer>
-                <StyledTextWrapper>
-                    <StyledTitle>
-                        {title}
-                    </StyledTitle>
-                    <StyledText>
-                        {text}
-                    </StyledText>
-                    <ButtonLink href='/' />
-                </StyledTextWrapper>
-                <StyledImage
-                    src="/images/banner_1.webp"
-                    width={600}
-                    height={289}
-                    alt="Odkryj teraz"
-                />
-            </StyledBannerContainer>
+            <Link href={href} passHref>
+                <a>
+                    <StyledBannerContainer>
+                        <StyledTextWrapper>
+                            <StyledTitle>
+                                {title}
+                            </StyledTitle>
+                            <StyledText>
+                                {text}
+                            </StyledText>
+                            <ButtonLink />
+                        </StyledTextWrapper>
+                        <StyledImage
+                            src="/images/banner_1.webp"
+                            width={600}
+                            height={289}
+                            alt="Odkryj teraz"
+                        />
+                    </StyledBannerContainer>
+                </a>
+            </Link>
         </StyledBanner>
     )
 }

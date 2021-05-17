@@ -9,7 +9,8 @@ const Home = ({ products }) => {
       <Banner
         background="#47AAB0"
         title='Nowości tygodnia'
-        text='Kolekcje na czasie' />
+        text='Kolekcje na czasie'
+        href='/nowosci' />
       <ProductList products={products} />
     </div>
   )
