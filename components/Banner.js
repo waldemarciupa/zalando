@@ -16,12 +16,25 @@ const StyledBannerContainer = styled.div`
     display: flex;
     justify-content: space-between;
     padding-top: 24px;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-right: 0;
+    } 
 `
 
 const StyledTextWrapper = styled.div`
     flex-basis: 41.66667%;
     max-width: 41.66667%;
     margin-top: 36px;
+
+    @media (max-width: 768px) {
+        margin-top: 0;
+        margin-bottom: 24px;
+        flex-basis: 100%;
+        max-width: 100%;
+    } 
 `
 
 const StyledTitle = styled.h2`
