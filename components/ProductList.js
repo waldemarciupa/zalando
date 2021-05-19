@@ -20,6 +20,7 @@ const StyledProductListContainer = styled.div`
 `
 
 const ProductList = ({ products }) => {
+    console.log(products);
     return (
         <StyledProductList>
             <StyledProductListContainer>
