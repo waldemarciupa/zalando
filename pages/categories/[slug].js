@@ -7,20 +7,18 @@ import ProductList from '../../components/ProductList'
 const CategoryPage = ({ products }) => {
     const router = useRouter()
 
-    useEffect(() => {
-        console.log(router);
-        console.log(router.query.slug);
-    }, []);
+    const filteredProducts = products.filter((e) => {
+        return e.category.slug == router.query.slug
+    })
 
     return (
         <>
-            <h1>{router.query.slug}</h1>
             <Banner
                 background="#47AAB0"
                 title='Nowości tygodnia'
                 text='Kolekcje na czasie'
                 href='/nowosci' />
-            <ProductList products={products} />
+            <ProductList products={filteredProducts} />
         </>
     )
 }
