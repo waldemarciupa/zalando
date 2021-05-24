@@ -40,6 +40,8 @@ export default function MainSlider() {
                         height={503}
                         alt=""
                     />
+                    <p>Więcej niż możesz sobie wyobrazić</p>
+                    <p>Moda, kosmetyki, sport i dużo więcej</p>
                 </SwiperSlide>
                 <SwiperSlide style={{ background: "#FE584D" }}>
                     <Image
@@ -48,6 +50,8 @@ export default function MainSlider() {
                         height={503}
                         alt=""
                     />
+                    <p>Darmowa dostawa</p>
+                    <p>Najlepsze rzeczy są za darmo, dostawa też</p>
                 </SwiperSlide>
                 <SwiperSlide style={{ background: "#6328E0" }}>
                     <Image
@@ -56,6 +60,8 @@ export default function MainSlider() {
                         height={503}
                         alt=""
                     />
+                    <p>Twoje ulubione marki</p>
+                    <p>Obserwuj marki i bądź na bieżąco</p>
                 </SwiperSlide>
                 <SwiperSlide style={{ background: "#4C8419" }}>
                     <Image
@@ -64,6 +70,8 @@ export default function MainSlider() {
                         height={503}
                         alt=""
                     />
+                    <p>Zmiany na lepsze</p>
+                    <p>Moda tworzona w duchu zrównoważonego rozwoju</p>
                 </SwiperSlide>
                 <SwiperSlide style={{ background: "#0C8368" }}>
                     <Image
@@ -72,6 +80,8 @@ export default function MainSlider() {
                         height={503}
                         alt=""
                     />
+                    <p>Przestrzeń dopasowana do Ciebie</p>
+                    <p>Modne sugestie dostosowane do Twojego stylu</p>
                 </SwiperSlide>
             </Swiper>
         </>
