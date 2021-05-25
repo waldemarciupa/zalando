@@ -1,10 +1,10 @@
-import MainSlider from "../components/MainSlider"
+import SwiperSlider from "../components/SwiperSlider"
 
 const Home = () => {
 
   return (
     <div>
-      <MainSlider />
+      <SwiperSlider />
     </div>
   )
 }

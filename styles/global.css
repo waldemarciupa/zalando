@@ -61,7 +61,6 @@ a {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  display: flex;
 }
 
 .swiper-slide img {
