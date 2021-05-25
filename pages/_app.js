@@ -7,7 +7,7 @@ function App({ Component, pageProps, navigation }) {
   return (
     <>
       <Header navigation={navigation} />
-      <Component {...pageProps} />
+      <Component navigation={navigation} {...pageProps} />
     </>
   )
 }

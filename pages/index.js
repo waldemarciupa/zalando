@@ -1,10 +1,10 @@
 import SwiperSlider from "../components/SwiperSlider"
 
-const Home = () => {
+const Home = ({ navigation }) => {
 
   return (
     <div>
-      <SwiperSlider />
+      <SwiperSlider navigation={navigation} />
     </div>
   )
 }

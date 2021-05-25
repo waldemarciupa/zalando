@@ -16,7 +16,8 @@ import SwiperCore, {
 // install Swiper modules
 SwiperCore.use([Autoplay, EffectFade, Navigation, Scrollbar])
 
-const SwiperSlider = () => {
+const SwiperSlider = ({ navigation }) => {
+
     return (
         <Swiper
             spaceBetween={30}
@@ -33,6 +34,7 @@ const SwiperSlider = () => {
         >
             <SwiperSlide style={{ background: "#0D6DFF" }} >
                 <SwiperSlideContent
+                    navigation={navigation}
                     image="/images/slider1.jpg"
                     icon="/images/icon_slider_1.svg"
                     title="Więcej niż możesz sobie wyobrazić"
@@ -40,6 +42,7 @@ const SwiperSlider = () => {
             </SwiperSlide>
             <SwiperSlide style={{ background: "#FE584D" }} >
                 <SwiperSlideContent
+                    navigation={navigation}
                     image="/images/slider2.jpg"
                     icon="/images/icon_slider_2.svg"
                     title="Darmowa dostawa"
@@ -47,6 +50,7 @@ const SwiperSlider = () => {
             </SwiperSlide>
             <SwiperSlide style={{ background: "#6328E0" }} >
                 <SwiperSlideContent
+                    navigation={navigation}
                     image="/images/slider3.jpg"
                     icon="/images/icon_slider_3.svg"
                     title="Twoje ulubione marki"
@@ -54,6 +58,7 @@ const SwiperSlider = () => {
             </SwiperSlide>
             <SwiperSlide style={{ background: "#4C8419" }} >
                 <SwiperSlideContent
+                    navigation={navigation}
                     image="/images/slider4.jpg"
                     icon="/images/icon_slider_4.svg"
                     title="Zmiany na lepsze"
@@ -61,6 +66,7 @@ const SwiperSlider = () => {
             </SwiperSlide>
             <SwiperSlide style={{ background: "#0C8368" }} >
                 <SwiperSlideContent
+                    navigation={navigation}
                     image="/images/slider5.jpg"
                     icon="/images/icon_slider_5.svg"
                     title="Przestrzeń dopasowana do Ciebie"
