@@ -33,31 +33,36 @@ const SwiperSlider = () => {
         >
             <SwiperSlide style={{ background: "#0D6DFF" }} >
                 <SwiperSlideContent
-                    url="/images/slider1.jpg"
+                    image="/images/slider1.jpg"
+                    icon="/images/icon_slider_1.svg"
                     title="Więcej niż możesz sobie wyobrazić"
                     desc="Moda, kosmetyki, sport i dużo więcej" />
             </SwiperSlide>
             <SwiperSlide style={{ background: "#FE584D" }} >
                 <SwiperSlideContent
-                    url="/images/slider2.jpg"
+                    image="/images/slider2.jpg"
+                    icon="/images/icon_slider_2.svg"
                     title="Darmowa dostawa"
                     desc="Najlepsze rzeczy są za darmo, dostawa też" />
             </SwiperSlide>
             <SwiperSlide style={{ background: "#6328E0" }} >
                 <SwiperSlideContent
-                    url="/images/slider3.jpg"
+                    image="/images/slider3.jpg"
+                    icon="/images/icon_slider_3.svg"
                     title="Twoje ulubione marki"
                     desc="Obserwuj marki i bądź na bieżąco" />
             </SwiperSlide>
             <SwiperSlide style={{ background: "#4C8419" }} >
                 <SwiperSlideContent
-                    url="/images/slider4.jpg"
+                    image="/images/slider4.jpg"
+                    icon="/images/icon_slider_4.svg"
                     title="Zmiany na lepsze"
                     desc="Moda tworzona w duchu zrównoważonego rozwoju" />
             </SwiperSlide>
             <SwiperSlide style={{ background: "#0C8368" }} >
                 <SwiperSlideContent
-                    url="/images/slider5.jpg"
+                    image="/images/slider5.jpg"
+                    icon="/images/icon_slider_5.svg"
                     title="Przestrzeń dopasowana do Ciebie"
                     desc="Modne sugestie dostosowane do Twojego stylu" />
             </SwiperSlide>
