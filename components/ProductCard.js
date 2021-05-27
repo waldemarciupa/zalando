@@ -77,7 +77,7 @@ const ProductCard = ({ product }) => {
                     <StyledCardDesc>
                         <div>
                             <StyledBrand>
-                                {product.brand}
+                                {product.brand.title}
                             </StyledBrand>
                             <StyledTitle>
                                 {product.title}

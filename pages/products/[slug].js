@@ -119,7 +119,7 @@ const Product = ({ product }) => {
                 </StyledMainImageWrapper>
             </StyledImageWrapper>
             <StyledContentWrapper>
-                <StyledBrand>{product.brand}</StyledBrand>
+                <StyledBrand>{product.brand.title}</StyledBrand>
                 <StyledTitle>{product.title}</StyledTitle>
                 <StyledPrice>{product.price.toFixed(2)} zł
                     <span> w tym VAT </span>
