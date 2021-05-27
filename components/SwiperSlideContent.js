@@ -14,6 +14,11 @@ const StyledContainer = styled.div`
         padding-left: 10px;
         padding-right: 10px;
     }
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+        padding-top: 24px;
+    }
 `
 
 const StyledContent = styled.div`
@@ -25,6 +30,12 @@ const StyledContent = styled.div`
 
     @media (max-width: 1200px) {
         min-width: 50%;
+    }
+
+    @media (max-width: 767px) {
+        width: 100%;
+        padding: 16px 0;
+        min-height: 220px;
     }
 `
 
@@ -60,6 +71,11 @@ const StyledCategoriesWrapper = styled.div`
 const StyledCategoriesContent = styled.div`
     margin-top: 16px;
     margin-left: -8px;
+
+    @media (max-width: 767px) {
+        margin-left: -4px;
+    }
+
 `
 
 const StyledLink = styled.a`
@@ -83,6 +99,12 @@ const StyledLink = styled.a`
 
     &:focus {
         background-color: #a2a3a8;
+    }
+
+    @media (max-width: 767px) {
+        width: 92px;
+        margin: 0 4px;
+        padding: 10px 6px;
     }
 `
 
