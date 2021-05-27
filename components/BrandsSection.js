@@ -35,7 +35,7 @@ const BrandSection = ({ brands }) => {
                 <StyledBrandsContainer>
                     {brands.map(brand => {
                         return (
-                            <StyledBrandItem>
+                            <StyledBrandItem key={brand.id}>
                                 <Link href={`/brands/${brand.id}`} passHref>
                                     <a>
                                         {brand.title}
