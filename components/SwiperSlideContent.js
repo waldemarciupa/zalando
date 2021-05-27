@@ -8,17 +8,24 @@ const StyledContainer = styled.div`
     margin-right: auto;
     padding-top: 30px;
     display: flex;
-`
+    padding-left: 18px;
 
-const StyledImageWrapper = styled.div`
-    flex-basis: 50%;
+    @media (max-width: 1025px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 `
 
 const StyledContent = styled.div`
+    width: 40%;
     display: flex;
     flex-direction: column;
-    padding: 0 32px;
+    padding-left: 16px;
     flex-grow: 1;
+
+    @media (max-width: 1200px) {
+        min-width: 50%;
+    }
 `
 
 const StyledIcon = styled.div`
@@ -37,9 +44,17 @@ const StyledParagraph = styled.p`
 const StyledCategoriesWrapper = styled.div`
     margin-bottom: 48px;
     flex-grow: 2;
-    display: flex;
+    display: ${(props) => props.mobile ? "none" : "flex"};
     flex-direction: column;
     justify-content: flex-end;
+
+    @media (max-width: 991px) {
+        margin-bottom: 16px;
+    }
+
+    @media (max-width: 767px) {
+        display: ${(props) => props.mobile ? "flex" : "none"};
+    }
 `
 
 const StyledCategoriesContent = styled.div`
@@ -74,14 +89,34 @@ const StyledLink = styled.a`
 const SwiperSlideContent = ({ image, icon, title, desc, navigation }) => {
     return (
         <StyledContainer>
-            <StyledImageWrapper>
-                <Image
-                    src={image}
-                    width={693}
-                    height={500}
-                    alt=""
-                />
-            </StyledImageWrapper>
+            <StyledCategoriesWrapper mobile>
+                <StyledParagraph small bold>
+                    Jaka kategoria mody Cię interesuje?
+                    </StyledParagraph>
+                <StyledCategoriesContent>
+                    {
+                        navigation.map(item => {
+                            return (
+                                <Link
+                                    key={item.id}
+                                    href={`/categories/${item.slug}`}
+                                    passHref
+                                >
+                                    <StyledLink>
+                                        {item.title}
+                                    </StyledLink>
+                                </Link>
+                            )
+                        })
+                    }
+                </StyledCategoriesContent>
+            </StyledCategoriesWrapper>
+            <Image
+                src={image}
+                width={693}
+                height={500}
+                alt=""
+            />
             <StyledContent>
                 <StyledIcon>
                     <Image
