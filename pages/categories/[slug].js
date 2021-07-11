@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
 import Banner from '../../components/Banner'
 import ProductList from '../../components/ProductList'
 
