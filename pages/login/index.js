@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import CustomButton from './../../components/Button'
@@ -83,6 +84,13 @@ const StyledPasswordButton = styled.button`
 const styledRegisterWrapper = styled.div``
 
 const Login = () => {
+    const [passwordVisible, setPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = (event) => {
+        event.preventDefault()
+        setPasswordVisible(!passwordVisible)
+    }
+
     return (
         <StyledContainer>
             <StyledLoginWrapper>
@@ -106,12 +114,12 @@ const Login = () => {
                             Hasło
                         </StyledLoginLabel>
                         <StyledLoginInput
-                            type="password"
+                            type={passwordVisible ? "text" : "password"}
                             id="login_password"
                             name="login_password"
                             placeholder="Hasło"
                             required />
-                        <StyledPasswordButton>
+                        <StyledPasswordButton onClick={togglePasswordVisibility}>
                             <Image width={24} height={24} src='/images/show_pass.png' />
                         </StyledPasswordButton>
                     </StyledLoginRow>
