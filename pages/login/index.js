@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Image from 'next/image'
-
+import CustomButton from './../../components/Button'
 
 const StyledContainer = styled.div`
     max-width: 1216px;
@@ -36,6 +36,7 @@ const StyledLoginForm = styled.form`
 const StyledLoginRow = styled.div`
     padding: 12px 0;
     width: 100%;
+    position: relative;
 
     &:focus-within label {
         background: #000;
@@ -51,8 +52,6 @@ const StyledLoginLabel = styled.label`
     padding: 4px 8px;
     border: 1px solid #1a1a1a;
     border-bottom: none;
-
-   
 `
 
 const StyledLoginInput = styled.input`
@@ -72,6 +71,15 @@ const StyledLoginInput = styled.input`
     }
 `
 
+const StyledPasswordButton = styled.button`
+    position: absolute;
+    bottom: 18px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+`
+
 const styledRegisterWrapper = styled.div``
 
 const Login = () => {
@@ -82,7 +90,7 @@ const Login = () => {
                 <StyledLoginForm>
                     <StyledLoginRow>
                         <StyledLoginLabel
-                            for="login_email">
+                            htmlFor="login_email">
                             Adres e-mail
                         </StyledLoginLabel>
                         <StyledLoginInput
@@ -94,7 +102,7 @@ const Login = () => {
                     </StyledLoginRow>
                     <StyledLoginRow>
                         <StyledLoginLabel
-                            for="login_password">
+                            htmlFor="login_password">
                             Hasło
                         </StyledLoginLabel>
                         <StyledLoginInput
@@ -103,10 +111,18 @@ const Login = () => {
                             name="login_password"
                             placeholder="Hasło"
                             required />
-                        <Image width={24} height={24} src='/images/show_pass.png' />
+                        <StyledPasswordButton>
+                            <Image width={24} height={24} src='/images/show_pass.png' />
+                        </StyledPasswordButton>
                     </StyledLoginRow>
-                    <StyledLoginRow></StyledLoginRow>
-
+                    <StyledLoginRow>
+                        <CustomButton
+                            whiteColor
+                            wide
+                            isBlack
+                            href='/login'
+                            name='Zaloguj się' />
+                    </StyledLoginRow>
                 </StyledLoginForm>
             </StyledLoginWrapper>
         </StyledContainer>
